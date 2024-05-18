@@ -20,6 +20,9 @@ app.use(
 
 const YOUR_DOMAIN = process.env.MY_DOMAIN
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
+
 app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
@@ -66,3 +69,5 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 app.listen(4242, () => console.log("Node server listening on port 4242!"));
+
+module.exports = app;
