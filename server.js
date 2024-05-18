@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config()
 const app = express();
 var cors = require("cors");
 
@@ -6,7 +7,7 @@ var cors = require("cors");
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
 const stripe = require("stripe")(
-    "sk_test_51LZThuJyDRgsgtRA3iz5HcMLGPRfJvMFBj1oSZsXY1RxAYPywCPsGzJKq99rHFu2uM3Oj8r7bQRisJmYKhzTqVZi00t7lWupTH"
+    process.env.SECRET_KEY
 );
 
 app.use(express.static("public"));
@@ -17,7 +18,7 @@ app.use(
     })
 );
 
-const YOUR_DOMAIN = 'http://localhost:4242';
+const YOUR_DOMAIN = process.env.MY_DOMAIN
 
 app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
