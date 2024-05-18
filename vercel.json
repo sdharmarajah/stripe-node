@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api" },
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/" },
+    { "source": "/(.*)", "destination": "/api" }
   ],
   "headers": [
     {
@@ -16,7 +17,7 @@
   ],
   "builds": [
     {
-      "src": "server.js",
+      "src": "/api/server.js",
       "use": "@vercel/node",
       "config": { "includeFiles": ["dist/**"] }
     }
