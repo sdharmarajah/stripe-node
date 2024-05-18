@@ -7,7 +7,7 @@ var cors = require("cors");
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
 const stripe = require("stripe")(
-    process.env.SECRET_KEY
+    "sk_test_51LZThuJyDRgsgtRA3iz5HcMLGPRfJvMFBj1oSZsXY1RxAYPywCPsGzJKq99rHFu2uM3Oj8r7bQRisJmYKhzTqVZi00t7lWupTH"
 );
 
 app.use(express.static("public"));
@@ -18,7 +18,7 @@ app.use(
     })
 );
 
-const YOUR_DOMAIN = process.env.MY_DOMAIN
+const YOUR_DOMAIN = "https://express-aeproto.vercel.app/"
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
