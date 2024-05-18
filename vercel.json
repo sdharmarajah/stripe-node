@@ -1,5 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/" }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
@@ -11,19 +14,12 @@
       ]
     }
   ],
-  "version": 2,
   "builds": [
-   {
-    "src": "server.js",
-    "use": "@vercel/node",
-    "config": { "includeFiles": ["dist/**"] }
-   }
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
+    }
   ],
-  "routes": [
-   {
-    "src": "/(.*)",
-    "dest": "server.js"
-   }
-  ]
- 
+  "version": 2
 }
