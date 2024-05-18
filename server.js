@@ -18,7 +18,7 @@ app.use(
     })
 );
 
-const YOUR_DOMAIN = "https://express-aeproto.vercel.app/"
+const YOUR_DOMAIN = "https://stripe-node-snowy.vercel.app/"
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
